@@ -44,7 +44,7 @@ lazy val root = Project(
     version := "1.2.1-SNAPSHOT",
     resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/maven-releases/",
     libraryDependencies ++= Seq(
-      "com.nulab-inc" % "scala-oauth2-core_2.11" % "1.2.0",
+      "com.nulab-inc" % "scala-oauth2-core_2.11" % "1.2.0" % "provided",
       "com.typesafe.akka" %% "akka-http-experimental" % akkaVersion,
       "com.typesafe.akka" %% "akka-http-core" % akkaVersion,
       "com.typesafe.akka" %% "akka-http-testkit" % akkaVersion,
