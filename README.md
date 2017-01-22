@@ -8,6 +8,7 @@ Add "akka-http-oauth2-provider" to library dependencies of your project.
 
 ```scala
 libraryDependencies ++= Seq(
+  "com.nulab-inc" %% "scala-oauth2-provider" % "1.2.0",
   "com.nulab-inc" %% "akka-http-oauth2-provider" % "1.2.0"
 )
 ```
