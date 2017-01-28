@@ -48,7 +48,7 @@ lazy val root = Project(
   settings = scalaOAuth2ProviderSettings ++ Seq(
     name := "akka-http-oauth2-provider",
     description := "Support scala-oauth2-core library on akka-http",
-    version := "1.2.1-SNAPSHOT",
+    version := "1.3.0",
     libraryDependencies ++= Seq(
       "com.nulab-inc" %% "scala-oauth2-core" % "1.3.0" % "provided",
       "com.typesafe.akka" %% "akka-http-core" % akkaVersion % "provided",
