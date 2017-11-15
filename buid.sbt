@@ -1,23 +1,16 @@
 val akkaVersion = "10.0.3"
 val commonDependenciesInTestScope = Seq(
-  "org.scalatest" %% "scalatest" % "3.0.1" % "test",
-  "ch.qos.logback" % "logback-classic" % "1.1.8" % "test"
-)
-
-val unusedWarnings = Seq(
-  "-Ywarn-unused",
-  "-Ywarn-unused-import"
+  "org.scalatest" %% "scalatest" % "3.0.3" % "test",
+  "ch.qos.logback" % "logback-classic" % "1.2.3" % "test"
 )
 
 lazy val scalaOAuth2ProviderSettings =
   Defaults.coreDefaultSettings ++
-    scalariformSettings ++
     Seq(
       organization := "com.nulab-inc",
-      scalaVersion := "2.12.1",
-      crossScalaVersions := Seq("2.12.1", "2.11.8"),
+      scalaVersion := "2.12.4",
+      crossScalaVersions := Seq("2.12.4", "2.11.11"),
       scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature"),
-      scalacOptions ++= unusedWarnings,
       publishTo := {
         val v = version.value
         val nexus = "https://oss.sonatype.org/"
@@ -46,14 +39,10 @@ lazy val scalaOAuth2ProviderSettings =
             <url>https://github.com/tsuyoshizawa</url>
           </developer>
         </developers>
-    ) ++ Seq(Compile, Test).flatMap(c =>
-      scalacOptions in (c, console) --= unusedWarnings
     )
 
-lazy val root = Project(
-  id = "akka-http-oauth2-provider",
-  base = file("."),
-  settings = scalaOAuth2ProviderSettings ++ Seq(
+lazy val root = (project in file("."))
+  .settings(
     name := "akka-http-oauth2-provider",
     description := "Support scala-oauth2-core library on akka-http",
     version := "1.3.1-SNAPSHOT",
@@ -65,4 +54,3 @@ lazy val root = Project(
       "com.typesafe.akka" %% "akka-http-spray-json" % akkaVersion % "provided"
     ) ++ commonDependenciesInTestScope
   )
-)

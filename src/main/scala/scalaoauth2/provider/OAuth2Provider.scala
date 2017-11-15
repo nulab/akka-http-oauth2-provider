@@ -38,8 +38,7 @@ trait OAuth2Provider[U] extends Directives with DefaultJsonProtocol {
             case Success(maybeGrantResponse) =>
               maybeGrantResponse.fold(
                 oauthError => complete(Unauthorized),
-                grantResult => complete(grantResultToTokenResponse(grantResult))
-              )
+                grantResult => complete(grantResultToTokenResponse(grantResult)))
             case Failure(ex) => complete(InternalServerError, s"An error occurred: ${ex.getMessage}")
           }
         }
