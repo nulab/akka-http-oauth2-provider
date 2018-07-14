@@ -15,8 +15,7 @@ class OAuth2ProviderSpec extends WordSpec with Matchers with ScalatestRouteTest 
 
   val tokenEndpointCredentials = new TokenEndpoint {
     override val handlers = Map(
-      OAuthGrantType.CLIENT_CREDENTIALS -> new ClientCredentials
-    )
+      OAuthGrantType.CLIENT_CREDENTIALS -> new ClientCredentials)
   }
 
   val oauth2ProviderFail = new OAuth2Provider[User] {
@@ -70,8 +69,7 @@ class OAuth2ProviderSpec extends WordSpec with Matchers with ScalatestRouteTest 
     "return Unauthorized when there is an error on authorization" in {
       Post("/oauth/access_token", FormData(
         "client_id" -> "bob_client_id",
-        "client_secret" -> "bob_client_secret", "grant_type" -> "client_credentials"
-      )) ~> oauth2ProviderFail.accessTokenRoute ~> check {
+        "client_secret" -> "bob_client_secret", "grant_type" -> "client_credentials")) ~> oauth2ProviderFail.accessTokenRoute ~> check {
         handled shouldEqual true
         status shouldEqual Unauthorized
       }
@@ -80,8 +78,7 @@ class OAuth2ProviderSpec extends WordSpec with Matchers with ScalatestRouteTest 
     "return Ok with token respons when there is a valid authorization" in {
       Post("/oauth/access_token", FormData(
         "client_id" -> "bob_client_id",
-        "client_secret" -> "bob_client_secret", "grant_type" -> "client_credentials"
-      )) ~> oauth2ProviderSuccess.accessTokenRoute ~> check {
+        "client_secret" -> "bob_client_secret", "grant_type" -> "client_credentials")) ~> oauth2ProviderSuccess.accessTokenRoute ~> check {
         handled shouldEqual true
         status shouldEqual OK
       }
