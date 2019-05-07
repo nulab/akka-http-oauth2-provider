@@ -1,4 +1,6 @@
-val akkaVersion = "10.0.3"
+val akkaHttpVersion = "10.1.8"
+val akkaVersion = "2.5.22"
+
 val commonDependenciesInTestScope = Seq(
   "org.scalatest" %% "scalatest" % "3.0.5" % "test",
   "ch.qos.logback" % "logback-classic" % "1.2.3" % "test"
@@ -48,9 +50,11 @@ lazy val root = (project in file("."))
     version := "1.3.1-SNAPSHOT",
     libraryDependencies ++= Seq(
       "com.nulab-inc" %% "scala-oauth2-core" % "1.3.0" % "provided",
-      "com.typesafe.akka" %% "akka-http-core" % akkaVersion % "provided",
-      "com.typesafe.akka" %% "akka-http" % akkaVersion % "provided",
-      "com.typesafe.akka" %% "akka-http-testkit" % akkaVersion % "provided",
-      "com.typesafe.akka" %% "akka-http-spray-json" % akkaVersion % "provided"
+      "com.typesafe.akka" %% "akka-http-core" % akkaHttpVersion % "provided",
+      "com.typesafe.akka" %% "akka-http" % akkaHttpVersion % "provided",
+      "com.typesafe.akka" %% "akka-stream" % akkaVersion % "provided",
+      "com.typesafe.akka" %% "akka-http-testkit" % akkaHttpVersion % "provided",
+      "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion % "provided",
+      "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % "provided"
     ) ++ commonDependenciesInTestScope
   )
