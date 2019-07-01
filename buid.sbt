@@ -2,7 +2,7 @@ val akkaHttpVersion = "10.1.8"
 val akkaVersion = "2.5.22"
 
 val commonDependenciesInTestScope = Seq(
-  "org.scalatest" %% "scalatest" % "3.0.5" % "test",
+  "org.scalatest" %% "scalatest" % "3.0.8" % "test",
   "ch.qos.logback" % "logback-classic" % "1.2.3" % "test"
 )
 
@@ -45,6 +45,7 @@ lazy val scalaOAuth2ProviderSettings =
 
 lazy val root = (project in file("."))
   .settings(
+    scalaOAuth2ProviderSettings,
     name := "akka-http-oauth2-provider",
     description := "Support scala-oauth2-core library on akka-http",
     version := "1.3.1-SNAPSHOT",
