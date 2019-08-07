@@ -1,5 +1,5 @@
-val akkaHttpVersion = "10.1.8"
-val akkaVersion = "2.5.22"
+val akkaHttpVersion = "10.1.9"
+val akkaVersion = "2.5.23"
 
 val commonDependenciesInTestScope = Seq(
   "org.scalatest" %% "scalatest" % "3.0.8" % "test",
@@ -10,8 +10,8 @@ lazy val scalaOAuth2ProviderSettings =
   Defaults.coreDefaultSettings ++
     Seq(
       organization := "com.nulab-inc",
-      scalaVersion := "2.12.6",
-      crossScalaVersions := Seq("2.12.6", "2.11.12"),
+      scalaVersion := "2.13.0",
+      crossScalaVersions := Seq("2.13.0","2.12.8", "2.11.12"),
       scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature"),
       publishTo := {
         val v = version.value
@@ -50,7 +50,7 @@ lazy val root = (project in file("."))
     description := "Support scala-oauth2-core library on akka-http",
     version := "1.3.1-SNAPSHOT",
     libraryDependencies ++= Seq(
-      "com.nulab-inc" %% "scala-oauth2-core" % "1.3.0" % "provided",
+      "com.nulab-inc" %% "scala-oauth2-core" % "1.4.0" % "provided",
       "com.typesafe.akka" %% "akka-http-core" % akkaHttpVersion % "provided",
       "com.typesafe.akka" %% "akka-http" % akkaHttpVersion % "provided",
       "com.typesafe.akka" %% "akka-stream" % akkaVersion % "provided",
