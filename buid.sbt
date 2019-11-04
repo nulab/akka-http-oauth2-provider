@@ -11,17 +11,20 @@ lazy val scalaOAuth2ProviderSettings =
     Seq(
       organization := "com.nulab-inc",
       scalaVersion := "2.13.0",
-      crossScalaVersions := Seq("2.13.0","2.12.8", "2.11.12"),
+      crossScalaVersions := Seq("2.13.0", "2.12.8", "2.11.12"),
       scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature"),
       publishTo := {
         val v = version.value
         val nexus = "https://oss.sonatype.org/"
-        if (v.trim.endsWith("SNAPSHOT")) Some("snapshots" at nexus + "content/repositories/snapshots")
+        if (v.trim.endsWith("SNAPSHOT"))
+          Some("snapshots" at nexus + "content/repositories/snapshots")
         else Some("releases" at nexus + "service/local/staging/deploy/maven2")
       },
       publishMavenStyle := true,
       publishArtifact in Test := false,
-      pomIncludeRepository := { x => false },
+      pomIncludeRepository := { x =>
+        false
+      },
       pomExtra := <url>https://github.com/nulab/akka-http-oauth2-provider</url>
         <licenses>
           <license>
