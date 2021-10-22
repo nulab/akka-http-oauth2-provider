@@ -1,21 +1,22 @@
 package scalaoauth2.provider
 
 import java.util.Date
-
 import akka.http.scaladsl.model.headers.OAuth2BearerToken
 import akka.http.scaladsl.server.directives.Credentials
-import akka.http.scaladsl.testkit.ScalatestRouteTest
-import org.scalatest.concurrent.ScalaFutures
-import org.scalatest.{Matchers, WordSpec}
 import akka.http.scaladsl.model.StatusCodes._
 import akka.http.scaladsl.model.FormData
+import akka.http.scaladsl.testkit.ScalatestRouteTest
+import org.scalatest.concurrent.ScalaFutures
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
+
 import scala.concurrent.Future
 
 class OAuth2ProviderSpec
-    extends WordSpec
+    extends AnyWordSpec
     with Matchers
-    with ScalatestRouteTest
-    with ScalaFutures {
+    with ScalaFutures
+    with ScalatestRouteTest {
 
   val tokenEndpointCredentials = new TokenEndpoint {
     override val handlers = Map(
