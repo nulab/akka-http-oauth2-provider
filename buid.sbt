@@ -2,16 +2,16 @@ val akkaHttpVersion = "10.1.9"
 val akkaVersion = "2.5.23"
 
 val commonDependenciesInTestScope = Seq(
-  "org.scalatest" %% "scalatest" % "3.0.8" % "test",
-  "ch.qos.logback" % "logback-classic" % "1.2.3" % "test"
+  "org.scalatest" %% "scalatest" % "3.2.0" % "test",
+  "ch.qos.logback" % "logback-classic" % "1.2.6" % "test"
 )
 
 lazy val scalaOAuth2ProviderSettings =
   Defaults.coreDefaultSettings ++
     Seq(
       organization := "com.nulab-inc",
-      scalaVersion := "2.13.5",
-      crossScalaVersions := Seq("2.13.5", "2.12.10", "2.11.12"),
+      scalaVersion := "2.13.6",
+      crossScalaVersions := Seq("2.13.6", "2.12.14", "2.11.12"),
       scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature"),
       publishTo := {
         val v = version.value
@@ -21,7 +21,7 @@ lazy val scalaOAuth2ProviderSettings =
         else Some("releases" at nexus + "service/local/staging/deploy/maven2")
       },
       publishMavenStyle := true,
-      publishArtifact in Test := false,
+      Test / publishArtifact := false,
       pomIncludeRepository := { x =>
         false
       },
